@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends('adminlte::page')
  @section("content" )
  
  <form action="_admins/bookCreate.php" method="POST" enctype="multipart/form-data">
@@ -8,11 +8,11 @@
              <label for="category_id" class="form-label fw-semibold">Category</label>
              <select name="category_id" id="category_id" class="form-select form-control">
                  <option value="">-- Select Category --</option>
-                 <?php foreach ($categories as $category): ?>
-                 <option value="<?php echo htmlspecialchars($category->id); ?>">
-                     <?php echo htmlspecialchars($category->name); ?>
+                 @foreach ($categories as $category)
+                 <option value={{$category->id}}>
+                     {{$category->name}}
                  </option>
-                 <?php endforeach; ?>
+                 @endforeach
              </select>
          </div>
 
